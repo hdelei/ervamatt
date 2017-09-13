@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Web site com Django</title>
+<link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+
+<body>
+	<!-- Main -->
+	<div>
+		<h1>Minha primeira pagina usando Django</h1>		
+		<hr>		
+	</div>
+	
+	<!-- About -->
+	<h2>{{ about.title }}</h2>
+	<div id="split_columns">                
+		{{ about.text|linebreaksbr }}
+    </div>
+	<p>
+	<hr>
+	
+	<!-- Schedule -->
+	<h2>Agenda</h2>
+	<div id="split_columns"><p>
+		<!--<img src="{% static 'img_schedule/sched.png' %}"></img>-->		
+		<ul>
+		{%for s in schedule%}			
+			<li>{{ s.text }} - {{ s.show_date|date:"d/m/Y" }} às 
+				{{ s.show_date|time:"H:i" }} <br /> 
+				<img src="{{ s.img }}"></img></li>		
+		{% endfor %}		
+		</ul></p>        
+    </div>
+</body>
+</html>
