@@ -1,3 +1,4 @@
+-f /usr/share/pip-wheels
 Django==1.11.5
 olefile==0.44
 Pillow==4.2.1
